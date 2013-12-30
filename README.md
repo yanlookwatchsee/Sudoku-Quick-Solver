@@ -26,8 +26,6 @@ To solve the world "hardest" sudoku:
    |--1 |--- |-68|.  
    |--8 |5-- |-1-|.  
    |-9- |--- |4--|.  
- .  
-
 
 <p>The solutin is ...</p>
 
