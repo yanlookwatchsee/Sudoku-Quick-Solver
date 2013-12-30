@@ -11,11 +11,11 @@ To solve the world "hardest" sudoku:
 
 ./sudokuSlove.py 800000000 003600000 070090200 050007000 000045700 000100030 001000068 008500010 090000400
 
-<p>********* SOLVE BEGIN *********
+<p>********* SOLVE BEGIN *********</p>
 
 
 
-60 units unsolved...
+<p>60 units unsolved...</p>
 8   -   - |   -   -   - |   -   -   -
 -   -   3 |   6   -   - |   -   -   -
 -   7   - |   -   9   - |   2   -   -
@@ -30,9 +30,9 @@ To solve the world "hardest" sudoku:
 
 
 
-The solutin is ...
+<p>The solutin is ...</p>
 
-0 units unsolved...
+<p>0 units unsolved...</p>
 8   1   2 |   7   5   3 |   6   4   9
 9   4   3 |   6   8   2 |   1   7   5
 6   7   5 |   4   9   1 |   2   8   3
@@ -44,14 +44,14 @@ The solutin is ...
 5   2   1 |   9   7   4 |   3   6   8
 4   3   8 |   5   2   6 |   9   1   7
 7   9   6 |   3   1   8 |   4   5   2
-********* SOLVE DONE*********</p>
+<p>********* SOLVE DONE*********</p>
 
-Total Cost:  330.145835876 Mili Seconds
+<p>Total Cost:  330.145835876 Mili Seconds</p>
 3. Efficiency:
 ---------------
-On OSX platform, @2.3GHz.
-To solve "simple" sudoku, less than 5 ms;
-To solve "hard" sudoku, 20-50 ms;
-To solve "world hardest" sudoku, 330 ms.
+<p>On OSX platform, @2.3GHz.</p>
+<p>To solve "simple" sudoku, less than 5 ms;</p>
+<p>To solve "hard" sudoku, 20-50 ms;</p>
+<p>To solve "world hardest" sudoku, 330 ms.</p>
 
 
