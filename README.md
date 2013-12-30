@@ -15,7 +15,7 @@ To solve the world "hardest" sudoku:
 
 
 <p>60 units unsolved...</p>
-   $ |8-- |--- |---|  
+   $ |8&nbsp&nbsp&nbsp-- |--- |---|  
    $ |--3 |6-- |---|  
    $ |-7- |-9- |2--|  
    $ |--- --- ---|--- --- ---|--- --- ---|  
