@@ -13,7 +13,7 @@ To solve the world "hardest" sudoku:
 
 <p>********* SOLVE BEGIN *********</p>
 
-| Tables        | Are           | Cool  |
+| Tables        | 8 - - | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
