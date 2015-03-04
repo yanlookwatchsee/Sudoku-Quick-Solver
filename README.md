@@ -51,7 +51,7 @@ To solve the world "hardest" Sudoku:
 
 <p>********* SOLVE DONE*********</p>
 
-<p>Total Cost:  330.145835876 Mili Seconds</p>
+<p>Total Cost:  185.254096986 Mili Seconds</p>
 -----------------
 
 3. Efficiency:
