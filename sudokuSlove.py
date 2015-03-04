@@ -22,24 +22,22 @@ class Record:
 
     def set(self, v):
         if self.value != -1 and self.value != v:
-            raise Exception("record set")
+            raise ValueError
 
         if self.check[v - 1]:
-            raise Exception("record set")
+            raise ValueError
         self.value = v
         self.feasible = 1
 
     def eliminate(self, v):
         if self.value != -1:
             return
+
         if not self.check[v - 1]:
             self.check[v - 1] = True
             self.feasible -= 1
         if self.feasible == 0:
-            raise Exception("record set")
-
-    def dump(self):
-        print self.check, self.value, self.feasible
+            raise ValueError
 
 
 class SolveBuffer:
@@ -56,13 +54,6 @@ class SolveBuffer:
                 if self.buf[i][j].value == -1:
                     return False
         return True
-
-    def dump(self):
-        print 'sb dump'
-        for i in range(0, 9):
-            for j in range(0, 9):
-                print '(', self.buf[i][j].value, self.buf[i][j].feasible, ')',
-            print ''
 
     def populate(self, i, j, v):
         self.buf[i][j].set(v)
@@ -101,22 +92,19 @@ class SolveBuffer:
 
 
 def do_solve(sb):
-
     try:
         while True:
             i, j, v = sb.find_one()
             if i == -1:
                 break
             sb.populate(i, j, v)
-    except:
+    except ValueError:
         return False
 
     if sb.solved():
-        # sb.dump()
         return True
 
     ti, tj, l = sb.find_first_feasible()
-    # print l
     if ti == -1:
         return False
 
@@ -130,7 +118,7 @@ def do_solve(sb):
             break
 
     if solved:
-        #sb.buf = deepcopy(tsb.buf)
+        sb.buf = deepcopy(tsb.buf)
         return True
 
     return False
@@ -154,8 +142,8 @@ class Sudoku:
     def solve(self):
         self.sb = SolveBuffer()
 
-        for i in range(9):
-            for j in range(9):
+        for i in xrange(9):
+            for j in xrange(9):
                 if board[i][j] > 0:
                     self.sb.populate(i, j, board[i][j])
 
@@ -176,7 +164,6 @@ args = parser.parse_args()
 board = load_args(args.rows)
 
 s = Sudoku(board)
-s.dump()
 
 print "********* SOLVE BEGIN *********\n\n\n"
 print "\n\n\nThe solution is ...\n"
