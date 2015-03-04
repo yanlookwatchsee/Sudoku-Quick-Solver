@@ -129,38 +129,6 @@ class SolveBuffer:
         return -1, -1, []
 
 
-def do_solve(sb):
-    try:
-        while True:
-            i, j, v = sb.find_one()
-            if not v:
-                break
-            sb.populate(i, j, v)
-    except ValueError:
-        return False
-
-    if sb.solved():
-        return True
-
-    ti, tj, l = sb.find_first_feasible()
-    if ti == -1:
-        return False
-
-    tsb = SolveBuffer()
-    solved = False
-    for tv in l:
-        tsb.buf = deepcopy(sb.buf)
-        tsb.populate(ti, tj, tv)
-        if do_solve(tsb):
-            solved = True
-            break
-
-    if solved:
-        sb.buf = deepcopy(tsb.buf)
-        return True
-    return False
-
-
 class Sudoku:
     def __init__(self, b):
         self.board = b
@@ -176,6 +144,37 @@ class Sudoku:
                     print v,
             print ''
 
+    def do_solve(self, sb):
+        try:
+            while True:
+                i, j, v = sb.find_one()
+                if not v:
+                    break
+                sb.populate(i, j, v)
+        except ValueError:
+            return False
+
+        if sb.solved():
+            return True
+
+        ti, tj, l = sb.find_first_feasible()
+        if ti == -1:
+            return False
+
+        tsb = SolveBuffer()
+        solved = False
+        for tv in l:
+            tsb.buf = deepcopy(sb.buf)
+            tsb.populate(ti, tj, tv)
+            if self.do_solve(tsb):
+                solved = True
+                break
+
+        if solved:
+            sb.buf = deepcopy(tsb.buf)
+            return True
+        return False
+
     def solve(self):
         self.sb = SolveBuffer()
 
@@ -184,7 +183,7 @@ class Sudoku:
                 if board[i][j] > 0:
                     self.sb.populate(i, j, board[i][j])
 
-        return do_solve(self.sb)
+        return self.do_solve(self.sb)
 
 
 def load_args(data):
