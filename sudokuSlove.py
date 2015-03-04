@@ -70,14 +70,15 @@ class SolveBuffer:
             for tj in xrange(j / 3 * 3, j / 3 * 3 + 3):
                 self.buf[ti][tj].eliminate(v)
 
-    def find_one(self):
+    def find_some(self):
+        l = []
         for i in xrange(9):
             for j in xrange(9):
                 v = self.buf[i][j].elect()
                 if not v:
                     continue
-                return i, j, v
-        return -1, -1, -1
+                l.append((i, j, v))
+        return l
 
     def find_first_feasible(self):
         l = []
@@ -94,10 +95,11 @@ class SolveBuffer:
 def do_solve(sb):
     try:
         while True:
-            i, j, v = sb.find_one()
-            if i == -1:
+            ret = sb.find_some()
+            if len(ret) == 0:
                 break
-            sb.populate(i, j, v)
+            for r in ret:
+                sb.populate(r[0], r[1], r[2])
     except ValueError:
         return False
 
