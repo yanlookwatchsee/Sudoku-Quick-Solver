@@ -13,13 +13,6 @@ class Record:
         self.value = -1
         self.feasible = 9
 
-    def elect(self):
-        if self.value == -1 and self.feasible == 1:
-            for i, c in enumerate(self.check):
-                if not c:
-                    return i + 1
-        return None
-
     def set(self, v):
         if self.value != -1 and self.value != v:
             raise ValueError
@@ -42,11 +35,10 @@ class Record:
 
 class SolveBuffer:
     def __init__(self):
-        self.buf = []
+        self.buf = [[None for i in xrange(9)] for j in xrange(9)]
         for i in xrange(9):
-            self.buf.append([])
             for j in xrange(9):
-                self.buf[i].append(Record())
+                self.buf[i][j] = Record()
 
     def solved(self):
         for i in xrange(9):
@@ -57,28 +49,73 @@ class SolveBuffer:
 
     def populate(self, i, j, v):
         self.buf[i][j].set(v)
-        # row
+        # row elimination
         for tj in xrange(9):
             self.buf[i][tj].eliminate(v)
 
-        # column
+        # column elimination
         for ti in xrange(9):
             self.buf[ti][j].eliminate(v)
 
-        # block
+        # block elimination
         for ti in xrange(i / 3 * 3, i / 3 * 3 + 3):
             for tj in xrange(j / 3 * 3, j / 3 * 3 + 3):
                 self.buf[ti][tj].eliminate(v)
 
-    def find_some(self):
-        l = []
+    def find_one(self):
+        # trivial solution first
         for i in xrange(9):
             for j in xrange(9):
-                v = self.buf[i][j].elect()
-                if not v:
-                    continue
-                l.append((i, j, v))
-        return l
+                if self.buf[i][j].value == -1 and self.buf[i][j].feasible == 1:
+                    for k in xrange(9):
+                        if not self.buf[i][j].check[k]:
+                            return i, j, k + 1
+        # non-trivial solution
+        for x in xrange(1, 10):
+            # row check
+            for i in xrange(9):
+                cnt, a, b = 0, 0, 0
+                for j in xrange(9):
+                    if self.buf[i][j].value == x:
+                        cnt = 0
+                        break
+                    elif self.buf[i][j].value == -1 and not self.buf[i][j].check[x - 1]:
+                        cnt += 1
+                        a, b = i, j
+                if cnt == 1:
+                    return a, b, x
+
+            # column check
+            for j in xrange(9):
+                cnt, a, b = 0, 0, 0
+                for i in xrange(9):
+                    if self.buf[i][j].value == x:
+                        cnt = 0
+                        break
+                    elif self.buf[i][j].value == -1 and not self.buf[i][j].check[x - 1]:
+                        cnt += 1
+                        a, b = i, j
+                if cnt == 1:
+                    return a, b, x
+
+            # block
+            for block in xrange(9):
+                cnt, a, b = 0, 0, 0
+                for i in xrange(block / 3 * 3, block / 3 * 3 + 3):
+                    done = False
+                    for j in xrange(block % 3 * 3, block % 3 * 3 + 3):
+                        if self.buf[i][j].value == x:
+                            cnt = 0
+                            done = True
+                            break
+                        elif self.buf[i][j].value == -1 and not self.buf[i][j].check[x - 1]:
+                            cnt += 1
+                            a, b = i, j
+                    if done:
+                        break
+                if cnt == 1:
+                    return a, b, x
+        return -1, -1, None
 
     def find_first_feasible(self):
         l = []
@@ -95,11 +132,10 @@ class SolveBuffer:
 def do_solve(sb):
     try:
         while True:
-            ret = sb.find_some()
-            if len(ret) == 0:
+            i, j, v = sb.find_one()
+            if not v:
                 break
-            for r in ret:
-                sb.populate(r[0], r[1], r[2])
+            sb.populate(i, j, v)
     except ValueError:
         return False
 
@@ -122,7 +158,6 @@ def do_solve(sb):
     if solved:
         sb.buf = deepcopy(tsb.buf)
         return True
-
     return False
 
 
