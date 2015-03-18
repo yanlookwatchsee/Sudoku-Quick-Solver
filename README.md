@@ -1,24 +1,17 @@
-Sudoku-Quick-Solver
-===================
+#Sudoku-Quick-Solver
 
-
-1. Description: 
-----------------
+1. ##Description: 
 This is a python programe to solve sudoku problem.
 
-----------------
 
-2. Example:
-----------------
+2. ##Example:
+
 To solve the world "hardest" Sudoku:
-
 ./sudokuSlove.py 800000000 003600000 070090200 050007000 000045700 000100030 001000068 008500010 090000400
+<pre>********* SOLVE BEGIN *********
+60 units unsolved...
+</pre>
 
-
-<p>********* SOLVE BEGIN *********</p>
-
-
-<p>60 units unsolved...</p>
 
 <table>
 <tr> <td>8  </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> </tr>
@@ -35,8 +28,6 @@ To solve the world "hardest" Sudoku:
 
 <p>The solutin is ...</p>
 
-<p>0 units unsolved...</p>
-
 
 
 <table>
@@ -51,13 +42,10 @@ To solve the world "hardest" Sudoku:
 <tr> <td>7	</td> <td>9	</td> <td>6	</td> <td>3	</td> <td>1	</td> <td>8	</td> <td>4	</td> <td>5	</td> <td>2	</td> </tr>
 </table>
 
-<p>********* SOLVE DONE*********</p>
+<pre>********* SOLVE DONE*********
+Total Cost:  185.254096986 Mili Seconds</pre>
 
-<p>Total Cost:  185.254096986 Mili Seconds</p>
------------------
-
-3. Efficiency:
----------------
+3. #Efficiency:
 <p>On OSX platform, @2.3GHz.</p>
 <p>To solve "simple" sudoku, less than 5 ms;</p>
 <p>To solve "hard" sudoku, 20-50 ms;</p>
