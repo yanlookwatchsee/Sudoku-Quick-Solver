@@ -1,10 +1,10 @@
 #Sudoku-Quick-Solver
 
-1. ##Description: 
+## 1. Description: 
 This is a python programe to solve sudoku problem.
 
 
-2. ##Example:
+## 2. Example:
 
 To solve the world "hardest" Sudoku:
 ./sudokuSlove.py 800000000 003600000 070090200 050007000 000045700 000100030 001000068 008500010 090000400
@@ -45,7 +45,7 @@ To solve the world "hardest" Sudoku:
 <pre>********* SOLVE DONE*********
 Total Cost:  185.254096986 Mili Seconds</pre>
 
-3. #Efficiency:
+# 3. Efficiency:
 <p>On OSX platform, @2.3GHz.</p>
 <p>To solve "simple" sudoku, less than 5 ms;</p>
 <p>To solve "hard" sudoku, 20-50 ms;</p>
