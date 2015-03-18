@@ -20,16 +20,18 @@ To solve the world "hardest" Sudoku:
 
 <p>60 units unsolved...</p>
 
-|8  |   |   |   |   |   |   |   |   |
-|---|---|---|---|---|---|---|---|---|
-|   |   |3  |6  |   |   |   |   |   |
-|   |7  |   |   |9  |   |2  |   |   |
-|   |5  |   |   |   |7  |   |   |   |
-|   |   |   |   |4  |5  |7  |   |   |
-|   |   |   |1  |   |   |   |3  |   |
-|   |   |1  |   |   |   |   |6  |8  |
-|   |   |8  |5  |   |   |   |1  |   |
-|   |9  |   |   |   |   |4  |   |   |
+<table>
+<tr> <td>8  </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>   </td> <td>3  </td> <td>6  </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>7  </td> <td>   </td> <td>   </td> <td>9  </td> <td>   </td> <td>2  </td> <td>   </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>5  </td> <td>   </td> <td>   </td> <td>   </td> <td>7  </td> <td>   </td> <td>   </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>4  </td> <td>5  </td> <td>7  </td> <td>   </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>   </td> <td>   </td> <td>1  </td> <td>   </td> <td>   </td> <td>   </td> <td>3  </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>   </td> <td>1  </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>6  </td> <td>8  </td> </tr>
+<tr> <td>   </td> <td>   </td> <td>8  </td> <td>5  </td> <td>   </td> <td>   </td> <td>   </td> <td>1  </td> <td>   </td> </tr>
+<tr> <td>   </td> <td>9  </td> <td>   </td> <td>   </td> <td>   </td> <td>   </td> <td>4  </td> <td>   </td> <td>   </td> </tr>
+</table>
+
 
 <p>The solutin is ...</p>
 
@@ -37,17 +39,17 @@ To solve the world "hardest" Sudoku:
 
 
 
-|8    |1	|2	|7	|5	|3	|6	|4	|9	|
-|---|---|---|---|---|---|---|---|---|
-|9	|4	|3	|6	|8	|2	|1	|7	|5	|
-|6	|7	|5	|4	|9	|1	|2	|8	|3	|
-|1	|5	|4	|2	|3	|7	|8	|9	|6	|
-|3	|6	|9	|8	|4	|5	|7	|2	|1	|
-|2	|8	|7	|1	|6	|9	|5	|3	|4	|
-|5	|2	|1	|9	|7	|4	|3	|6	|8	|
-|4	|3	|8	|5	|2	|6	|9	|1	|7	|
-|7	|9	|6	|3	|1	|8	|4	|5	|2	|
-
+<table>
+<tr> <td>8    </td> <td>1	</td> <td>2	</td> <td>7	</td> <td>5	</td> <td>3	</td> <td>6	</td> <td>4	</td> <td>9	</td> </tr>
+<tr> <td>9	</td> <td>4	</td> <td>3	</td> <td>6	</td> <td>8	</td> <td>2	</td> <td>1	</td> <td>7	</td> <td>5	</td> </tr>
+<tr> <td>6	</td> <td>7	</td> <td>5	</td> <td>4	</td> <td>9	</td> <td>1	</td> <td>2	</td> <td>8	</td> <td>3	</td> </tr>
+<tr> <td>1	</td> <td>5	</td> <td>4	</td> <td>2	</td> <td>3	</td> <td>7	</td> <td>8	</td> <td>9	</td> <td>6	</td> </tr>
+<tr> <td>3	</td> <td>6	</td> <td>9	</td> <td>8	</td> <td>4	</td> <td>5	</td> <td>7	</td> <td>2	</td> <td>1	</td> </tr>
+<tr> <td>2	</td> <td>8	</td> <td>7	</td> <td>1	</td> <td>6	</td> <td>9	</td> <td>5	</td> <td>3	</td> <td>4	</td> </tr>
+<tr> <td>5	</td> <td>2	</td> <td>1	</td> <td>9	</td> <td>7	</td> <td>4	</td> <td>3	</td> <td>6	</td> <td>8	</td> </tr>
+<tr> <td>4	</td> <td>3	</td> <td>8	</td> <td>5	</td> <td>2	</td> <td>6	</td> <td>9	</td> <td>1	</td> <td>7	</td> </tr>
+<tr> <td>7	</td> <td>9	</td> <td>6	</td> <td>3	</td> <td>1	</td> <td>8	</td> <td>4	</td> <td>5	</td> <td>2	</td> </tr>
+</table>
 
 <p>********* SOLVE DONE*********</p>
 
